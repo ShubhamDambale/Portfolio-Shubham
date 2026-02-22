@@ -26,23 +26,18 @@ export default function ProfileCard() {
       <div className="px-6 pb-6 relative">
         {/* Avatar */}
         <div className="absolute -top-12 left-6 w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-white dark:border-[#26292e] bg-gradient-to-br from-li-blue-light to-[#bbdefb] flex items-center justify-center shadow-lg overflow-hidden">
-          <img
-            src={profile.profilePic}
-            alt="Profile"
-            className="block w-full h-full object-cover"
-            style={{ objectPosition: '50% 22%' }}
-          />
+          <img src={profile.profilePic} alt="Profile" className="block w-full h-full object-cover object-top" />
         </div>
 
         {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row sm:justify-end gap-2 pt-3">
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn-primary w-full sm:w-auto text-center">
+        <div className="flex justify-end pt-3 gap-2 flex-wrap">
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn-primary">
             Connect
           </a>
-          <a href={`mailto:${profile.email}`} className="btn-outline w-full sm:w-auto text-center">
+          <a href={`mailto:${profile.email}`} className="btn-outline">
             Contact
           </a>
-          <a href={resumeFile} download className="btn-ghost w-full sm:w-auto text-center">
+          <a href={resumeFile} download className="btn-ghost">
             ⬇ Resume
           </a>
         </div>

@@ -25,7 +25,7 @@ export default function Navbar({ dark, toggleDark }) {
           {/* Dark mode toggle */}
           <button
             onClick={toggleDark}
-            className="ml-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-[#3a3d42] rounded-full px-3 py-1.5 hover:border-li-blue hover:text-li-blue transition-all duration-200"
+            className="ml-auto md:ml-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-[#3a3d42] rounded-full px-3 py-1.5 hover:border-li-blue hover:text-li-blue transition-all duration-200"
             aria-label="Toggle dark mode"
           >
             <span>{dark ? '☀' : '🌙'}</span>
@@ -35,7 +35,7 @@ export default function Navbar({ dark, toggleDark }) {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(o => !o)}
-            className="md:hidden flex flex-col gap-1.5 p-1.5 rounded"
+            className="ml-2 md:hidden flex flex-col gap-1.5 p-1.5 rounded"
             aria-label="Toggle menu"
           >
             <span className={`block w-5 h-0.5 bg-gray-500 rounded transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
