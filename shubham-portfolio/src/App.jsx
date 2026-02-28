@@ -14,7 +14,7 @@ export default function App() {
   const [dark, toggleDark] = useDarkMode()
 
   return (
-    <div className="min-h-screen bg-[#f3f2ef] dark:bg-[#1b1f23] transition-colors duration-300">
+    <div className="min-h-screen bg-[#f3f2ef] dark:bg-[#1b1f23] transition-colors duration-300 overflow-x-hidden">
       <Navbar dark={dark} toggleDark={toggleDark} />
 
       <main className="max-w-[900px] mx-auto px-4 py-6 flex flex-col gap-4">

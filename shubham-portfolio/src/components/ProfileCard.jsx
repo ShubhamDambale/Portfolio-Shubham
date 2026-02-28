@@ -30,7 +30,7 @@ export default function ProfileCard() {
         </div>
 
         {/* Action buttons */}
-        <div className="flex justify-end pt-3 gap-2 flex-wrap">
+        <div className="flex justify-start md:justify-end pt-[3.5rem] md:pt-3 gap-2 flex-nowrap md:flex-wrap overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="btn-primary">
             Connect
           </a>
@@ -43,7 +43,7 @@ export default function ProfileCard() {
         </div>
 
         {/* Info */}
-        <div className="mt-12 md:mt-14">
+        <div className="mt-4 md:mt-14">
           <h1 className="font-display text-2xl md:text-3xl font-bold leading-tight text-[#191919] dark:text-[#f0ede8]">
             {profile.name}
           </h1>

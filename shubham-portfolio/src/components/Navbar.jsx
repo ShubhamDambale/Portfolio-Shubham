@@ -14,7 +14,7 @@ export default function Navbar({ dark, toggleDark }) {
           <span className="font-display text-2xl font-bold text-li-blue flex-shrink-0">SD</span>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-1 ml-auto">
+          <div className="hidden lg:flex items-center gap-1 ml-auto">
             {NAV_ITEMS.map(item => (
               <a key={item} href={`#${item}`} className="nav-link">
                 {item}
@@ -25,7 +25,7 @@ export default function Navbar({ dark, toggleDark }) {
           {/* Dark mode toggle */}
           <button
             onClick={toggleDark}
-            className="ml-auto md:ml-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-[#3a3d42] rounded-full px-3 py-1.5 hover:border-li-blue hover:text-li-blue transition-all duration-200"
+            className="ml-auto lg:ml-2 flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-[#3a3d42] rounded-full px-3 py-1.5 hover:border-li-blue hover:text-li-blue transition-all duration-200"
             aria-label="Toggle dark mode"
           >
             <span>{dark ? '☀' : '🌙'}</span>
@@ -35,7 +35,7 @@ export default function Navbar({ dark, toggleDark }) {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(o => !o)}
-            className="ml-2 md:hidden flex flex-col gap-1.5 p-1.5 rounded"
+            className="ml-2 lg:hidden flex flex-col gap-1.5 p-1.5 rounded"
             aria-label="Toggle menu"
           >
             <span className={`block w-5 h-0.5 bg-gray-500 rounded transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
@@ -47,7 +47,7 @@ export default function Navbar({ dark, toggleDark }) {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden fixed top-14 inset-x-0 bottom-0 bg-white dark:bg-[#26292e] z-40 px-6 py-4 overflow-y-auto">
+        <div className="lg:hidden fixed top-14 inset-x-0 bottom-0 bg-white dark:bg-[#26292e] z-40 px-6 py-4 overflow-y-auto">
           {NAV_ITEMS.map(item => (
             <a
               key={item}
