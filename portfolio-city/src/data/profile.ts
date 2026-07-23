@@ -51,25 +51,24 @@ export const profile: Profile = {
     {
       id: 'linkedin',
       label: 'LinkedIn',
-      // The resume links the word "LinkedIn" but the extracted text does not expose the URL.
-      href: PH('https://linkedin.com/in/<your-handle> — paste your real LinkedIn URL here'),
-      handle: PH('LinkedIn profile URL not readable from the resume PDF'),
+      href: 'https://www.linkedin.com/in/shubham-dambale-115582202/',
+      handle: 'shubham-dambale-115582202',
       icon: 'linkedin',
       primary: true,
     },
     {
       id: 'github',
       label: 'GitHub',
-      href: PH('https://github.com/<your-handle> — add your GitHub profile URL'),
-      handle: PH('GitHub username is not listed on the resume'),
+      href: 'https://github.com/ShubhamDambale',
+      handle: 'ShubhamDambale',
       icon: 'github',
       primary: true,
     },
     {
       id: 'portfolio',
       label: 'Portfolio',
-      href: PH('https://<your-domain> — add your live portfolio URL once deployed'),
-      handle: PH('Deploy this site, then paste the URL here'),
+      href: 'https://shubhamdambale.in',
+      handle: 'shubhamdambale.in',
       icon: 'globe',
     },
     {

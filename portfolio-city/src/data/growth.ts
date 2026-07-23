@@ -3,27 +3,16 @@ import { PH, type Achievement, type Certification, type EducationEntry, type Roa
 /* ------------------------------------------------------------- University */
 
 /**
- * The resume PDF has no EDUCATION section. Rather than invent a degree, the University district
- * renders these placeholders with a visible "add this" treatment.
- *
  * Note: Masai School appears on the resume as an *employer* (Software Engineer, Oct 2023 – Mar 2024),
  * not as education — so it is deliberately NOT listed here.
  */
 export const education: EducationEntry[] = [
   {
-    id: 'degree',
-    institution: PH('Add your college / university name.'),
-    credential: PH('Add your degree, e.g. B.E. Computer Engineering.'),
-    period: PH('Add start and end years.'),
-    detail: PH('Optional: CGPA/percentage, specialisation, notable coursework or final-year project.'),
-    note: 'No EDUCATION section exists on the current resume PDF — recruiters usually look for one.',
-  },
-  {
-    id: 'schooling',
-    institution: PH('Optional: higher-secondary school.'),
-    credential: PH('Optional: HSC / Diploma.'),
-    period: PH('Add years.'),
-    detail: PH('Only worth keeping if it adds something — otherwise delete this entry.'),
+    id: 'mca',
+    institution: 'Kurukshetra University, Haryana',
+    credential: 'Master of Computer Applications (MCA)',
+    period: '2024 — 2026',
+    detail: 'CGPA: 9.0 / 10',
   },
 ]
 

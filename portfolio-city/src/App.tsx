@@ -22,9 +22,6 @@ import { Projects } from '@/pages/Projects'
 import { ProjectDetail } from '@/pages/ProjectDetail'
 import { Skills } from '@/pages/Skills'
 import { Education } from '@/pages/Education'
-import { AILab } from '@/pages/AILab'
-import { Architecture } from '@/pages/Architecture'
-import { Achievements } from '@/pages/Achievements'
 import { About } from '@/pages/About'
 import { Contact } from '@/pages/Contact'
 import { NotFound } from '@/pages/NotFound'
@@ -107,9 +104,6 @@ function DesktopExperience() {
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/education" element={<Education />} />
-          <Route path="/ai-lab" element={<AILab />} />
-          <Route path="/architecture" element={<Architecture />} />
-          <Route path="/achievements" element={<Achievements />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
@@ -146,9 +140,6 @@ function MobileExperience() {
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/education" element={<Education />} />
-          <Route path="/ai-lab" element={<AILab />} />
-          <Route path="/architecture" element={<Architecture />} />
-          <Route path="/achievements" element={<Achievements />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

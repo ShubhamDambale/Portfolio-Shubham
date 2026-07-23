@@ -178,16 +178,106 @@ jobs:
       demo: PH('Live demo URL not on the resume — add one, or note that it is an internal enterprise product.'),
     },
   },
+  {
+    id: 'catnap',
+    slug: 'catnap',
+    name: 'CatNap',
+    role: 'Creator & Developer',
+    period: 'Personal project',
+    blurb: 'A cat-themed Chrome extension that blocks distracting sites and tabs so you can focus.',
+    accent: '#a78bfa',
+    office: [8, -4],
+    overview:
+      'CatNap is a Manifest V3 Chrome extension that keeps you focused by gatekeeping distracting websites and tabs. You choose which sites to block, and CatNap intercepts navigation to them — a lightweight, cat-themed take on a focus gatekeeper, in the same spirit as CatGatekeeper.',
+    businessProblem: PH(
+      'Add why you built CatNap in 2–3 sentences: the specific distraction problem it solves, who it is for, and how it differs from CatGatekeeper.',
+    ),
+    solution:
+      'A Manifest V3 extension built with plain JavaScript and the Chrome Extension APIs: a popup UI manages the blocklist, a background service worker tracks whether blocking is active, and the extension intercepts navigation to blocked sites and shows a focus screen instead. The blocklist and settings persist through the chrome.storage API so they survive browser restarts.',
+    features: [
+      'Blocks a user-defined list of distracting websites and tabs.',
+      'Popup UI to add, remove and toggle blocked sites.',
+      'Blocklist and settings persisted via the Chrome storage API.',
+      'Blocked pages are intercepted and replaced with a focus screen.',
+      'Built on Manifest V3 with a background service worker.',
+    ],
+    architecture: {
+      summary:
+        'A standard Manifest V3 extension: a popup UI drives a background service worker that applies blocking rules against the sites you choose, with the blocklist persisted in Chrome storage.',
+      nodes: [
+        { id: 'popup', label: 'Popup UI', kind: 'client', detail: 'HTML/CSS/JS popup to manage the blocklist and toggle focus mode.' },
+        { id: 'sw', label: 'Service worker', kind: 'service', detail: 'Manifest V3 background service worker tracking the active blocking state.' },
+        { id: 'block', label: 'Blocking rules', kind: 'gateway', detail: 'Intercepts navigation to blocked sites via the Chrome tabs / webNavigation APIs.' },
+        { id: 'content', label: 'Content script', kind: 'client', detail: 'Renders the focus / blocked screen on gated pages.' },
+        { id: 'storage', label: 'Chrome storage', kind: 'data', detail: 'Persists the blocklist and settings across browser restarts.' },
+      ],
+      edges: [
+        { from: 'popup', to: 'storage', label: 'save blocklist' },
+        { from: 'popup', to: 'sw', label: 'toggle focus' },
+        { from: 'sw', to: 'block', label: 'enable rules' },
+        { from: 'block', to: 'content', label: 'inject' },
+        { from: 'sw', to: 'storage', label: 'read/write' },
+      ],
+    },
+    stack: ['JavaScript', 'Chrome Extension APIs', 'Manifest V3', 'HTML', 'CSS'],
+    screenshots: [
+      {
+        src: '/screenshots/placeholder.svg',
+        alt: 'Placeholder for the CatNap popup / blocklist UI',
+        caption: PH('Popup showing the blocklist — export a real screenshot to /public/screenshots and swap it in.'),
+        placeholder: true,
+      },
+      {
+        src: '/screenshots/placeholder.svg',
+        alt: 'Placeholder for the CatNap focus / blocked screen',
+        caption: PH('The blocked-page focus screen — replace with a real capture.'),
+        placeholder: true,
+      },
+    ],
+    snippets: [
+      {
+        title: 'Blocking navigation to gated sites (Manifest V3 service worker)',
+        language: 'javascript',
+        note: PH('Illustrative of the Chrome APIs used — swap in a real (sanitised) excerpt from the repo.'),
+        code: `// background.js — Manifest V3 service worker
+const FOCUS_PAGE = chrome.runtime.getURL('focus.html')
+
+async function isBlocked(url) {
+  const { blocklist = [], active = false } = await chrome.storage.sync.get(['blocklist', 'active'])
+  if (!active) return false
+  const host = new URL(url).hostname.replace(/^www\\./, '')
+  return blocklist.some((site) => host === site || host.endsWith('.' + site))
+}
+
+chrome.webNavigation.onBeforeNavigate.addListener(async ({ tabId, url, frameId }) => {
+  if (frameId !== 0) return // top-level navigations only
+  if (await isBlocked(url)) {
+    chrome.tabs.update(tabId, { url: FOCUS_PAGE })
+  }
+})`,
+      },
+    ],
+    challenges: [
+      PH('Add the hardest problem you hit — e.g. handling SPA route changes, service-worker lifecycle/idle, or matching subdomains reliably. One paragraph.'),
+      PH('Add a second challenge, ideally about Manifest V3 constraints or storage sync.'),
+    ],
+    results: [
+      PH('Add measurable outcomes — installs, active users, or the personal focus impact CatNap has had.'),
+    ],
+    learnings: [
+      PH('Add 2–3 takeaways — what building a Chrome extension taught you, and what you would change.'),
+    ],
+    links: {
+      github: PH('Add the CatNap repository URL (or mark it private).'),
+      demo: PH('Add the Chrome Web Store listing URL, or note that it is unpublished.'),
+    },
+  },
 ]
 
 /**
- * Empty plots rendered in the Tech Park. Honest signposting: the city shows exactly as many
- * projects as the resume does, and invites the rest.
+ * Empty plots rendered in the Tech Park. Left empty so only real, built projects show —
+ * no "add your next project here" signposts.
  */
-export const vacantOffices: { id: string; label: string; office: [number, number] }[] = [
-  { id: 'plot-2', label: 'Available plot — add your next project', office: [8, -4] },
-  { id: 'plot-3', label: 'Available plot — add your next project', office: [-6, 8] },
-  { id: 'plot-4', label: 'Available plot — add your next project', office: [8, 8] },
-]
+export const vacantOffices: { id: string; label: string; office: [number, number] }[] = []
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug)

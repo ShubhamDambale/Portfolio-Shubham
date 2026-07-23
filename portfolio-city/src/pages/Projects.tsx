@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { districtById } from '@/data/districts'
-import { projects, vacantOffices } from '@/data/projects'
+import { projects } from '@/data/projects'
 import { useSEO } from '@/hooks/useSEO'
 import { DistrictPanel } from '@/components/shell/DistrictPanel'
 import { Heading, Note, TagRow } from '@/components/ui/content'
@@ -21,11 +21,11 @@ export function Projects() {
   return (
     <DistrictPanel route="/projects" title="Tech Park" kicker="Projects" accent={d.accent} glyph={d.glyph}>
       <Note>
-        The Tech Park has one occupied office per project on my résumé. Right now that’s the flagship ESS Portal —
-        the empty plots below are honest signposts for what’s coming next, not filler.
+        The Tech Park has one office per project I’ve built — the flagship enterprise ESS Portal, and CatNap,
+        a Chrome extension I built on the side. Each building below is a real project, not a placeholder.
       </Note>
 
-      <Heading accent={d.accent}>Flagship project</Heading>
+      <Heading accent={d.accent}>Projects</Heading>
       <div className="space-y-4">
         {projects.map((p, i) => (
           <motion.div
@@ -63,19 +63,6 @@ export function Projects() {
               </div>
             </Link>
           </motion.div>
-        ))}
-      </div>
-
-      <Heading accent="#5b6d8c">Available plots</Heading>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-        {vacantOffices.map((v) => (
-          <div
-            key={v.id}
-            className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-amber-500/40 bg-amber-500/[0.04] px-4 py-8 text-center"
-          >
-            <Icon name="sparkles" size={20} className="text-amber-400/70" />
-            <p className="mt-2 text-xs text-amber-300/80">Add your next project here</p>
-          </div>
         ))}
       </div>
     </DistrictPanel>
