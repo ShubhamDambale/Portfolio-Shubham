@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img"
+     aria-label="Placeholder screenshot — replace with a real product screenshot">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1a2540" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="#070b14" />
+  <rect width="1280" height="720" fill="url(#grid)" />
+  <rect x="40" y="40" width="1200" height="640" rx="16" fill="none" stroke="#f5a524" stroke-width="2" stroke-dasharray="12 10" />
+  <text x="640" y="330" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="34" font-weight="700" fill="#f5a524">
+    SCREENSHOT PLACEHOLDER
+  </text>
+  <text x="640" y="382" text-anchor="middle" font-family="Inter, Segoe UI, sans-serif" font-size="20" fill="#8ea3c4">
+    Drop a real screenshot into /public/screenshots and update src/data/projects.ts
+  </text>
+</svg>

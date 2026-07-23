@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting… — Shubham Dambale</title>
+    <!--
+      GitHub Pages has no server-side routing, so a hard refresh on a client route
+      (e.g. /projects/ess-portal) would 404. This shim stores the requested path and
+      bounces to the SPA root, where a matching snippet in index.html restores it.
+      Technique: https://github.com/rafgraph/spa-github-pages (MIT).
+    -->
+    <script>
+      sessionStorage.setItem('spa-redirect', location.pathname + location.search + location.hash)
+      location.replace(location.origin + '/')
+    </script>
+  </head>
+  <body>
+    <noscript>
+      This site needs JavaScript. Visit <a href="/">the homepage</a>.
+    </noscript>
+  </body>
+</html>
